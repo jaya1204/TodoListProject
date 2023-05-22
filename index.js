@@ -1,3 +1,6 @@
+//let item = "value";
+//localStorage.setItem("key", item);
+
 console.log("running");
 
 let todoList = [];
@@ -5,6 +8,7 @@ const form = document.getElementById("my-forms");
 const inputText = document.getElementById("input-text");
 const thingsToDo = document.getElementById("thingstodo");
 const addTodoButton = document.getElementById("add-btn");
+//showData();
 
 function handleForm(event) {
   event.preventDefault(); // it prevents from refreshing the page before submitting the data.
@@ -16,8 +20,9 @@ function handleForm(event) {
     inputText.value = ""; //refresh the input
     return;
   }
+
   addToDo(inputText.value);
-  inputText.value = "";
+  // inputText.value = "";
 }
 //In addtoDoTo() function i created html elements div,p,button and appending it into things to do container and calling removeToDo() function
 function addToDo(text) {
@@ -27,8 +32,6 @@ function addToDo(text) {
     todoitem: text,
   });
 
-  console.log(todoList);
-
   const itemContainer = document.createElement("div");
   itemContainer.style.display = "flex";
 
@@ -36,7 +39,7 @@ function addToDo(text) {
   paragraph.textContent = text;
 
   const removeButton = document.createElement("button");
-  removeButton.textContent = "Remove item from to do";
+  removeButton.textContent = "Delete";
 
   removeButton.addEventListener("click", () =>
     removeToDo(itemContainer, toDoId)
@@ -44,12 +47,27 @@ function addToDo(text) {
 
   itemContainer.append(paragraph, removeButton);
   thingsToDo.appendChild(itemContainer);
+  inputText.value = "";
+  saveData();
 }
 // this function removing to do items from the list
 function removeToDo(removingdata, toDoId) {
+  console.log(removingdata, toDoId);
+  todoList = todoList.filter((todo) => todo.key !== toDoId);
+  console.log(todoList);
+
   removingdata.remove();
+  saveData();
 }
 
 form.addEventListener("submit", handleForm);
 addTodoButton.addEventListener("click", handleForm);
 //form.addEventListener("submit", (event) => event.preventDefault());
+
+function saveData() {
+  localStorage.setItem("data", JSON.stringify(todoList));
+}
+
+/*function showData() {
+  thingsToDo.textContent = localStorage.getItem("data");
+}*/
