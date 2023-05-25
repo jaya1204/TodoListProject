@@ -4,8 +4,8 @@
   box-sizing: border-box;
 }
 body {
-  /*background-color: rgb(16, 16, 65);*/
-  background: linear-gradient(rgb(9, 9, 61) 100%, rgb(12, 12, 122) 50%);
+  /*background-color: rgb(16, 16, 65);
+  background: linear-gradient(#d7e3fc, #c1d3fe);*/
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
@@ -25,14 +25,11 @@ body {
   justify-content: start;*/
   width: 700px;
   height: 500px;
-  background-color: rgb(222, 222, 231);
+  background-color: #edf2fb;
 }
 h1 {
   color: rgb(9, 9, 61);
   margin-top: 20px;
-}
-.thingstodo {
-  text-align: center;
 }
 form > input,
 form > button {
@@ -42,9 +39,44 @@ form > button {
   margin-right: 10px;
   border-radius: 10px;
   cursor: pointer;
+  background-color: #abc4ff;
 }
-form > button:hover,
-form > input:hover {
+form > button:hover {
   background-color: rgb(9, 9, 61);
   color: rgb(222, 222, 231);
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5px;
+  overflow: auto;
+  color: black;
+  background-color: #edf2fb;
+}
+.todo-item button {
+  width: 100px;
+  border: none;
+  background-color: #e2eafc;
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+.todo-item button:hover,
+form > input:hover {
+  /*background-color: #abc4ff;
+  color: rgb(222, 222, 231);*/
+  border: 2px solid rgb(9, 9, 61);
+  color: rgb(35, 33, 33);
+}
+.todo-item p {
+  width: 500px;
+  text-align: start;
+  margin-left: 20px;
+}
+.todo-list {
+  height: 300px;
+  overflow: auto;
+  margin-top: 50px;
 }

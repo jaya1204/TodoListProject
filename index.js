@@ -8,7 +8,7 @@ const form = document.getElementById("my-forms");
 const inputText = document.getElementById("input-text");
 const thingsToDo = document.getElementById("thingstodo");
 const addTodoButton = document.getElementById("add-btn");
-//const container = document.getElementsByClassName("container");
+
 displayData();
 
 function handleForm(event) {
@@ -35,10 +35,15 @@ function addToDo(text) {
 
   const itemContainer = document.createElement("div");
   itemContainer.style.display = "flex";
+  itemContainer.classList.add("todo-item");
 
   const paragraph = document.createElement("p");
   paragraph.textContent = text;
-  // paragraph.classList.add("para");
+
+  const editButton = document.createElement("button");
+  editButton.textContent = "Edit";
+
+  editButton.addEventListener("click", () => editToDo(itemContainer, toDoId));
 
   const removeButton = document.createElement("button");
   removeButton.textContent = "Delete";
@@ -47,11 +52,14 @@ function addToDo(text) {
     removeToDo(itemContainer, toDoId)
   );
 
-  itemContainer.append(paragraph, removeButton);
-  thingsToDo.appendChild(itemContainer);
-  // container.append(thingsToDo);
+  itemContainer.append(paragraph, editButton, removeButton);
+
   inputText.value = "";
   saveData();
+}
+
+function editToDo(text, todoid) {
+  inputText.value = text;
 }
 // this function removing to do items from the list
 function removeToDo(removingdata, toDoId) {
@@ -65,7 +73,6 @@ function removeToDo(removingdata, toDoId) {
 
 form.addEventListener("submit", handleForm);
 addTodoButton.addEventListener("click", handleForm);
-//form.addEventListener("submit", (event) => event.preventDefault());
 
 function saveData() {
   localStorage.setItem("data", JSON.stringify(todoList));
@@ -83,9 +90,15 @@ function displayData() {
   todoList.forEach((todoItem) => {
     const itemContainer = document.createElement("div");
     itemContainer.style.display = "flex";
+    itemContainer.classList.add("todo-item");
 
     const paragraph = document.createElement("p");
     paragraph.textContent = todoItem.todoitem;
+
+    const editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+
+    editButton.addEventListener("click", () => editToDo(itemContainer));
 
     const removeButton = document.createElement("button");
     removeButton.textContent = "Delete";
@@ -94,8 +107,7 @@ function displayData() {
       removeToDo(itemContainer, todoItem.key)
     );
 
-    itemContainer.append(paragraph, removeButton);
+    itemContainer.append(paragraph, editButton, removeButton);
     thingsToDo.appendChild(itemContainer);
-    // container.append(thingsToDo);
   });
 }
