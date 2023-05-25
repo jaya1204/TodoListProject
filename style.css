@@ -32,7 +32,9 @@ h1 {
   margin-top: 20px;
 }
 form > input,
-form > button {
+#add-btn,
+.save-button,
+.cancel-button {
   border: none;
   padding: 10px;
   margin-top: 30px;
@@ -41,7 +43,9 @@ form > button {
   cursor: pointer;
   background-color: #abc4ff;
 }
-form > button:hover {
+#add-btn:hover,
+.save-button:hover,
+.cancel-button:hover {
   background-color: rgb(9, 9, 61);
   color: rgb(222, 222, 231);
 }
@@ -53,9 +57,12 @@ form > button:hover {
   padding: 5px;
   overflow: auto;
   color: black;
-  background-color: #edf2fb;
+  /*box-shadow: 1px 1px 1px #7797e1, -1px -1px -1px #0d1f4a;
+  background-color: #edf2fb;*/
 }
-.todo-item button {
+.todo-item .edit-button,
+.todo-item .save-button,
+.todo-item .delete-button {
   width: 100px;
   border: none;
   background-color: #e2eafc;
@@ -63,7 +70,9 @@ form > button:hover {
   border-radius: 10px;
   margin-right: 10px;
 }
-.todo-item button:hover,
+.todo-item .edit-button:hover,
+.todo-item .delete-button:hover,
+.todo-item .save-button:hover,
 form > input:hover {
   /*background-color: #abc4ff;
   color: rgb(222, 222, 231);*/
@@ -74,6 +83,14 @@ form > input:hover {
   width: 500px;
   text-align: start;
   margin-left: 20px;
+}
+.todo-item input {
+  width: 500px;
+  text-align: start;
+  margin-left: 20px;
+  border: none;
+  background: transparent;
+  padding: 5px;
 }
 .todo-list {
   height: 300px;
