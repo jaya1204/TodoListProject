@@ -1,9 +1,8 @@
-//let item = "value";
-//localStorage.setItem("key", item);
+//import { createHtmlElements } from "./createhtmlelements.js";
 
 console.log("running");
 
-let todoList = [];
+export let todoList = [];
 const form = document.getElementById("my-forms");
 const inputText = document.getElementById("input-text");
 const thingsToDo = document.getElementById("thingstodo");

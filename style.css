@@ -5,9 +5,9 @@
 }
 body {
   /*background-color: rgb(16, 16, 65);
-  background: linear-gradient(#d7e3fc, #c1d3fe);*/
+  background: linear-gradient(#4965a5, #a8b1c8);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;*/
   min-height: 100vh;
   margin: 50px;
   color: aliceblue;
@@ -16,25 +16,23 @@ body {
   align-items: center;
   justify-content: start;
   text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
 }
 
 .container {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: start;*/
   width: 700px;
   height: 500px;
-  background-color: #edf2fb;
+  /* background-color: #edf2fb;*/
+  background: linear-gradient(#546693, #0d3592);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 h1 {
-  color: rgb(9, 9, 61);
   margin-top: 20px;
 }
-form > input,
-#add-btn,
-.save-button,
-.cancel-button {
+#input-text,
+#add-btn {
   border: none;
   padding: 10px;
   margin-top: 30px;
@@ -43,9 +41,9 @@ form > input,
   cursor: pointer;
   background-color: #abc4ff;
 }
-#add-btn:hover,
-.save-button:hover,
-.cancel-button:hover {
+
+#input-text:hover,
+#add-btn:hover {
   background-color: rgb(9, 9, 61);
   color: rgb(222, 222, 231);
 }
@@ -56,9 +54,7 @@ form > input,
   align-items: center;
   padding: 5px;
   overflow: auto;
-  color: black;
-  /*box-shadow: 1px 1px 1px #7797e1, -1px -1px -1px #0d1f4a;
-  background-color: #edf2fb;*/
+  /*color: black*/
 }
 .todo-item .edit-button,
 .todo-item .save-button,
@@ -74,10 +70,10 @@ form > input,
 .todo-item .delete-button:hover,
 .todo-item .save-button:hover,
 form > input:hover {
-  /*background-color: #abc4ff;
-  color: rgb(222, 222, 231);*/
-  border: 2px solid rgb(9, 9, 61);
-  color: rgb(35, 33, 33);
+  background-color: #abc4ff;
+  color: black;
+  /*border: 2px solid rgb(9, 9, 61);
+  color: rgb(35, 33, 33);*/
 }
 .todo-item p {
   width: 500px;
@@ -88,9 +84,12 @@ form > input:hover {
   width: 500px;
   text-align: start;
   margin-left: 20px;
+  margin-right: 10px;
   border: none;
   background: transparent;
   padding: 5px;
+  color: aliceblue;
+  font-size: 16px;
 }
 .todo-list {
   height: 300px;
