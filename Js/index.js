@@ -8,31 +8,35 @@ const inputText = document.getElementById("input-text");
 const thingsToDo = document.getElementById("thingstodo");
 const addTodoButton = document.getElementById("add-btn");
 const formContainer = document.querySelector("#form-container");
+const inputDate = document.querySelector("#input-date");
 displayData();
 
 function handleForm(event) {
   event.preventDefault(); // it prevents from refreshing the page before submitting the data.
-  console.log("form submit" + inputText.value);
+  console.log("form submit" + inputDate.value);
 
   if (inputText.value.length < 4) {
     //if conditions throws alert message when length of the value lessthen 4
     window.alert("give more descriptive");
     inputText.value = ""; //refresh the input
+    inputDate.value = "";
     return;
   }
 
-  addToDo(inputText.value);
+  addToDo(inputText.value, inputDate.value);
   // inputText.value = "";
 }
 
-function addToDo(text) {
+function addToDo(text, date) {
   const toDoId = Date.now();
   todoList.push({
     key: toDoId,
     todoitem: text,
+    finishDate: date,
   });
-  createHtmlElements(text, todoList.key);
+  createHtmlElements(text, todoList.key, date);
   inputText.value = "";
+  inputDate.value = "";
   saveData();
 }
 
@@ -75,12 +79,12 @@ function displayData() {
   thingsToDo.innerHTML = ""; // Clear the existing list before displaying
 
   todoList.forEach((todoItem) => {
-    createHtmlElements(todoItem.todoitem, todoItem.key);
+    createHtmlElements(todoItem.todoitem, todoItem.key, todoItem.finishDate);
   });
 }
 
 //In addtoDoTo() function i created html elements div,p,button and appending it into things to do container and calling removeToDo() function
-function createHtmlElements(text, key) {
+function createHtmlElements(text, key, date) {
   const itemContainer = document.createElement("div");
   itemContainer.style.display = "flex";
   itemContainer.classList.add("todo-item");
@@ -88,6 +92,9 @@ function createHtmlElements(text, key) {
 
   const paragraph = document.createElement("p");
   paragraph.textContent = text;
+
+  const paragraph1 = document.createElement("p");
+  paragraph1.textContent = date;
 
   const editButton = document.createElement("button");
   editButton.textContent = "Edit";
@@ -113,6 +120,7 @@ function createHtmlElements(text, key) {
 
   itemContainer.append(
     paragraph,
+    paragraph1,
     inputField,
     saveButton,
     editButton,
