@@ -153,19 +153,3 @@ function saveToDo(text, key) {
 
   saveData();
 }
-
-fetch("https://restcountries.com/v2/all")
-  .then((res) => res.json())
-  .then((data) => {
-    data.forEach((country) => {
-      const countryNames = country.name;
-      //console.log(countryNames);
-      const flag = country.flag;
-      // console.log(flag);
-      const language = country.languages;
-      //console.log(language);
-      const population = country.population;
-      console.log(population);
-    });
-    console.log(data);
-  });
