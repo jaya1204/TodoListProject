@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700;800&family=Inter:wght@400;600;700;900&family=League+Spartan:wght@700&family=Nunito+Sans:opsz,wght@6..12,300;6..12,600;6..12,800&family=Oxygen:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap");
+
 * {
   margin: 0;
   padding: 0%;
@@ -16,13 +18,13 @@ body {
   align-items: center;
   justify-content: start;
   text-align: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Hanken Grotesk", sans-serif;
   font-size: 16px;
 }
 
 .container {
-  width: 700px;
-  height: 500px;
+  width: 1400px;
+  min-height: 100vh;
   /* background-color: #edf2fb;*/
   background: linear-gradient(#546693, #0d3592);
   background-repeat: no-repeat;
@@ -30,10 +32,13 @@ body {
 }
 h1 {
   margin-top: 20px;
+  font-size: 3.5rem;
 }
 #input-text,
 #add-btn,
 #input-date {
+  outline: none;
+  font-size: 1rem;
   border: none;
   padding: 10px;
   margin-top: 30px;
@@ -41,6 +46,11 @@ h1 {
   border-radius: 10px;
   cursor: pointer;
   background-color: #abc4ff;
+}
+#add-btn {
+  width: 100px;
+  padding: 10px;
+  font-size: 1rem;
 }
 
 #input-text:hover,
@@ -52,8 +62,10 @@ h1 {
 
 .todo-item {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   padding: 5px;
   overflow: auto;
   /*color: black*/
@@ -62,6 +74,7 @@ h1 {
 .todo-item .save-button,
 .todo-item .delete-button {
   width: 100px;
+  font-size: 1rem;
   border: none;
   background-color: #e2eafc;
   padding: 10px;
@@ -78,6 +91,7 @@ form > input:hover {
   color: rgb(35, 33, 33);*/
 }
 .todo-item p {
+  font-size: 1.5rem;
   width: 500px;
   text-align: start;
   margin-left: 20px;
@@ -97,4 +111,7 @@ form > input:hover {
   height: 300px;
   overflow: auto;
   margin-top: 50px;
+}
+.edit-input {
+  background-color: #abc4ff;
 }

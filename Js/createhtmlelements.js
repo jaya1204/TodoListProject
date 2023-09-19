@@ -1,5 +1,5 @@
 import { todoList } from "./index.js";
-export function createHtmlElements(text, key) {
+export default function createHtmlElements(text, key) {
   const itemContainer = document.createElement("div");
   itemContainer.style.display = "flex";
   itemContainer.classList.add("todo-item");

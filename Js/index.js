@@ -48,6 +48,8 @@ function editToDo(text, todoid) {
   const saveButton = itemContainer.querySelector(".save-button");
   paragraph.style.display = "none";
   inputField.style.display = "inline-block";
+  // inputField.style.borderBottom = " 1px solid #abc4ff";
+  //inputField.style.backgroundColor = "#abc4ff";
   editButton.style.display = "none";
   saveButton.style.display = "inline-block";
 }
@@ -105,6 +107,7 @@ function createHtmlElements(text, key, date) {
   inputField.type = "text";
   inputField.value = text;
   inputField.style.display = "none";
+  inputField.classList.add("Edit-input");
 
   const saveButton = document.createElement("button");
   saveButton.textContent = "Save";
